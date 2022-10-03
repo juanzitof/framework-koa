@@ -1,5 +1,5 @@
 const Koa = require("koa");
-const KoaBody = require("koa-body");
+const koaBody = require("koa-body");
 const productRouter = require("./routes/productRoutes.js")
 const config = require("./config/index.js");
 
@@ -9,7 +9,7 @@ if (config.DB.toLowerCase() === "mongo"){
     require("./config/dbConnection.js")
 }
 
-app.use(koaBody()); 
+app.use(koaBody());
 app.use(productRouter.routes().use(productRouter.allwedMethods()));
 
 const PORT = config.PORT;
